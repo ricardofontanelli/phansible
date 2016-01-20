@@ -32,3 +32,10 @@
               regexp='^html_errors ='
               line='html_errors = {{ php_html_errors }}'
   notify: restart php5-fpm
+  
+  - name: Set expose_php
+  sudo: yes
+  lineinfile: dest={{ php_fpm_ini }}
+              regexp='^html_errors ='
+              line='html_errors = {{ php_expose_php }}'
+  notify: restart php5-fpm
